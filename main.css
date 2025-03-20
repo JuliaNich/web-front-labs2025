@@ -1,0 +1,23 @@
+body {
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+}
+header {
+    background-color: purple;
+    color: white;
+    font-family: Arial;
+    margin: 0px; 
+}
+main {
+    font-family: Arial;
+    margin: 0px; 
+}footer {
+    background-color: rgb(32, 178, 44);
+    color: black;
+    font-family: Arial; 
+}
+a {
+    text-decoration: none;
+}
