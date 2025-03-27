@@ -21,3 +21,23 @@ main {
 a {
     text-decoration: none;
 }
+a:link {
+    color:rgb(230, 117, 230);
+    text-decoration: underline;
+}
+a:visited {
+    color:rgb(24, 182, 225);
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+    background-color: rgb(230, 117, 230);
+    color: rgb(244, 15, 15);
+    font-family: Verdana;
+    margin: 0px; 
+}
+a:active {
+    color: black;
+    opacity: 0.3;
+}
