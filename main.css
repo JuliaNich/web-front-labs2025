@@ -12,11 +12,17 @@ header {
 }
 main {
     font-family: Arial;
-    margin: 0px; 
-}footer {
+    margin: 10px 20px 45px; 
+}
+footer {
     background-color: rgb(32, 178, 44);
     color: black;
-    font-family: Arial; 
+    font-family: Arial;
+    text-align: right; 
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 a {
     color: blue;
