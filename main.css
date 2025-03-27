@@ -19,7 +19,9 @@ main {
     font-family: Arial; 
 }
 a {
+    color: blue;
     text-decoration: none;
+    transition: 7s 2s;
 }
 a:link {
     color:rgb(230, 117, 230);
@@ -35,7 +37,8 @@ a:hover {
     background-color: rgb(230, 117, 230);
     color: rgb(244, 15, 15);
     font-family: Verdana;
-    margin: 0px; 
+    margin: 0px;
+    transition: 0.3s; 
 }
 a:active {
     color: black;
