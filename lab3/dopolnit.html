@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ничипоренко Юлия Николаевна. Лабрраторная 3</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+    <link rel= 'icon' href="../favicon-16x16.png"> 
+    <link rel= 'icon' href="../favicon-32x32.png">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;      
+        }
+        .discount {
+            width: 60%;                
+            max-width: 600px;            
+            margin: 10px;
+            background-color: #e69696;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            overflow: hidden;           
+            transition: all 0.5s ease-in-out;  
+            padding: 15px;
+            box-sizing: border-box;    
+            min-height: 50px;
+            color: aqua;
+            position: relative;           
+        }
+
+        .discount h2 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #dcfffb;
+            transition: color 3s ease;
+        }
+
+        .discount div {
+            display: none;             
+            margin-top: 10px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .discount:hover {
+            margin-left: 5%;
+            margin-right: 5%;
+            transform: translateY(-3px); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition-delay: 3s;
+        }
+
+        .discount:hover h2 {
+            color: #f82e2e;
+            background-color: rgb(229, 171, 171);
+            border-radius: 20px;
+        }
+
+        .discount:hover div {
+            display: block;
+            color: deeppink;
+            background-color: rgb(214, 208, 208);
+            border-radius: 20px;             
+        }
+        .discount {
+            transition-delay: 0s, 0s, 0s, 4s, 2s; 
+        }
+        .discount:hover {
+            transition-delay: 3s;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #f6d2d2;
+            color: rgb(65, 31, 31);
+        }
+    </style>
+  
+  
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 3
+        <hr>
+    </header> 
+    <main>
+        <div class="discount">
+            <h2>Гарри Поттер и Принц-полукровка</h2>
+            <div>
+                <div>— Можно подумать, людям больше посплетничать не о чем, — сказала в один из вечеров Джинни, сидевшая на полу общей гостиной, прислонясь спиной к ногам Гарри и просматривая номер «Ежедневного пророка». — Три нападения дементоров за неделю, 
+                а у Ромильды Вейн только один вопрос ко мне и нашёлся: правда ли, что у тебя на груди наколот гиппогриф?</div>
+                <div>Рон с Гермионой покатились со смеху. Гарри в их сторону даже не взглянул.</div>
+                <div>— И что ты ей ответила?</div>
+                <div>— Что у тебя там изображена Венгерская хвосторога, — ответила Джинни, неторопливо переворачивая газетную страницу.</div> 
+                <div>— Пусть считает, что ты настоящий мачо.</div>
+                <div>— Ну спасибо, — ухмыльнулся Гарри.</div> 
+                <div>— А Рона ты чем наградила?</div>
+                <div>— Карликовым пушистиком. Правда, я отказалась говорить, на каком месте он его наколол.</div>
+            </div>
+        </div>
+        <div class="discount">
+            <h2>Гарри Поттер и Кубок огня</h2>
+            <div>
+                <div>— Проклятье! — послышался голос мистера Уизли. — С какой стати им взбрело в голову забить камин?</div>
+                <div>— А у них теперь электрический, — объяснил Гарри.</div>
+                <div>— В самом деле? — восхитился мистер Уизли.</div>
+                <div>— Эклектический, говоришь? Со штепселем? Бог ты мой, я должен это увидеть…</div>
+           </div>
+        </div>
+        <div class="discount">
+            <h2>Гарри Поттер и Орден Феникса</h2>
+            <div>
+                Только что он заметно поднял Гарри настроение рассказом о том, 
+                как подробно описал внешность безобразного мужчины с бородавкой на носу, появившегося в его магическом кристалле, 
+                а потом поднял глаза и обнаружил, что это было отражение его экзаменатора.
+            </div>
+        </div>
+        <div class="discount">
+            <h2>Гарри Поттер и узник Азкабана</h2>
+            <div>
+                — Ты думаешь, что мёртвые, которых мы любили, навсегда нас покинули? Но ведь мы их зовём, когда нам плохо. 
+                вой отец живёт в тебе, Гарри, и он, очевидно, явил себя, когда ты так в нём нуждался. 
+                Да как иначе ты смог бы сотворить именно такого Патронуса? Этой ночью Сохатый вновь вышел в поле.
+            </div>
+        </div>
+        <div class="discount">
+            <h2>Гарри Поттер и Философский камень</h2>
+            <div>
+                <div>- Сэр… Профессор Дамблдор, - нерешительно начал он.</div> 
+                <div>- Могу я задать вам один вопрос?</div> 
+                <div>- Кажется, ты уже задал один вопрос. - Дамблдор улыбнулся.</div> 
+                <div>- Тем не менее можешь задать еще один.</div> 
+                <div>- Что вы видите, когда смотрите в зеркало? - выпалил Гарри, затаив дыхание.</div> 
+                <div>- Я? - переспросил профессор.</div> 
+                <div>- Я вижу себя, держащего в руке пару толстых шерстяных носков.</div> 
+                <div>Гарри недоуменно смотрел на него.</div> 
+                <div>- У человека не может быть слишком много носков, - пояснил Дамблдор.</div> 
+                <div>- Вот прошло еще одно Рождество, а я не получил в подарок ни одной пары. Люди почему-то дарят мне только книги.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        </hr>
+       &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+    </footer>
+</body>
+</html>
