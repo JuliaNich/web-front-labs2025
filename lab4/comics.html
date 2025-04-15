@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ничипоренко Юлия Николаевна. Лабрраторная 4</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+        <link rel= 'icon' href="../favicon-16x16.png"> 
+        <link rel= 'icon' href="../favicon-32x32.png">
+        <style>
+            img {
+                position: relative; 
+            }
+
+            .cloud {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background-color: rgb(178, 255, 246);
+                border: 1px dotted rgb(18, 101, 164);
+                margin: 15px;
+                border-radius: 100px;
+                position: absolute;
+                left: 500px;
+                top: 170px;
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out 0.1s; 
+            }
+
+            .cloud1 {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                background-color: rgb(178, 255, 246);
+                border: 1px dotted rgb(18, 101, 164);
+                margin: 15px;
+                border-radius: 100px;
+                position: absolute;
+                left: 550px;
+                top: 130px;
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out 0.2s; 
+            }
+
+            .cloud2 {
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                text-align: center;
+                background-color: rgb(178, 255, 246);
+                border: 1px dotted rgb(18, 101, 164);
+                margin: 15px;
+                border-radius: 100px;
+                position: absolute;
+                left: 630px;
+                top: 85px;
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out 0.3s; 
+            }
+
+            .cloud3 {
+                width: 150px;
+                height: 80px;
+                line-height: 80px;
+                text-align: center;
+                background-color: rgb(178, 255, 246);
+                border: 1px dotted rgb(18, 101, 164);
+                margin: 15px;
+                border-radius: 100px;
+                position: absolute;
+                left: 730px;
+                top: 50px;
+                z-index: 1;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out 0.4s; 
+            }
+
+            img:hover + .cloud,
+            img:hover + .cloud + .cloud1,
+            img:hover + .cloud + .cloud1 + .cloud2,
+            img:hover + .cloud + .cloud1 + .cloud2 + .cloud3 {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 4
+            <hr>
+        </header> 
+        <main>
+           <img src="олаф.jpeg" height="450">
+           <div class="cloud"></div>
+           <div class="cloud1"></div>
+           <div class="cloud2"></div>
+           <div class="cloud3">Я шашлычок :)</div>
+        </main>
+        <footer>
+            </hr>
+            &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
