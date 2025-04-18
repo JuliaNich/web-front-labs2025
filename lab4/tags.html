@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ничипоренко Юлия Николаевна. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel='icon' href="../favicon-16x16.png">
+    <link rel='icon' href="../favicon-32x32.png">
+    <style>
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .tag {
+            background-color: transparent; 
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative; 
+            z-index: 1; 
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            transform: scale(1.2) !important; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important; 
+            z-index: 10 !important; 
+        }
+
+        .tag:nth-child(1) {
+            color: #e91e63;
+            font-size: 16px;
+            transform: rotate(-5deg);
+        }
+
+        .tag:nth-child(2) {
+            color: #9c27b0;
+            font-size: 18px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+        .tag:nth-child(3) {
+            color: #673ab7;
+            font-size: 20px;
+            transform: rotate(10deg);
+        }
+
+        .tag:nth-child(4) {
+            color: #3f51b5;
+            font-size: 22px;
+            position: relative;
+            left: 30px;
+        }
+
+        .tag:nth-child(5) {
+            color: #2196f3;
+            font-size: 24px;
+            transform: rotate(-40deg);
+        }
+
+        .tag:nth-child(6) {
+            color: #03a9f4;
+            font-size: 26px;
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+        }
+
+        .tag:nth-child(7) {
+            color: #00bcd4;
+            font-size: 28px;
+            transform: rotate(20deg);
+        }
+
+        .tag:nth-child(8) {
+            color: #009688;
+            font-size: 30px;
+            position: relative;
+            top: 170px;
+        }
+
+        .tag:nth-child(9) {
+            color: #4caf50;
+            font-size: 32px;
+            transform: rotate(-60deg);
+        }
+
+        .tag:nth-child(10) {
+            color: #8bc34a;
+            font-size: 34px;
+            position: absolute;
+            top: 150px;
+            right: 150px;
+        }
+
+        .tag:nth-child(11) {
+            color: #cddc39;
+            font-size: 36px;
+            transform: rotate(30deg);
+        }
+
+        .tag:nth-child(12) {
+            color: #ffeb3b;
+            font-size: 38px;
+            position: relative;
+            bottom: 100px;
+        }
+
+        .tag:nth-child(13) {
+            color: #ffc107;
+            font-size: 40px;
+            transform: rotate(-35deg);
+        }
+
+        .tag:nth-child(14) {
+            color: #ff9800;
+            font-size: 42px;
+            position: absolute;
+            bottom: 150px;
+            left: 150px;
+        }
+
+        .tag:nth-child(15) {
+            color: #ff5722;
+            font-size: 44px;
+            transform: rotate(40deg);
+        }
+
+    
+    </style>
+</head> 
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+        <hr>
+    </header>
+    <main>
+        <div class="tag-container">
+            <div class="tag">Cat</div>
+            <div class="tag">Dog</div>
+            <div class="tag">Frog</div>
+            <div class="tag">Bird</div>
+            <div class="tag">Rabbit</div>
+            <div class="tag">Hamster</div>
+            <div class="tag">Horse</div>
+            <div class="tag">Parrot</div>
+            <div class="tag">Tiger</div>
+            <div class="tag">Goldfish</div>
+            <div class="tag">Turtle</div>
+            <div class="tag">Chiken</div>
+            <div class="tag">Goose</div>
+            <div class="tag">Donkey</div>
+            <div class="tag">Elephant</div>
+        </div>
+    </main>
+    <footer>
+        &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+    </footer>
+</body>
+
+</html>
