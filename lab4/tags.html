@@ -18,17 +18,20 @@
         }
 
         .tag {
-            background-color: transparent; 
             padding: 10px 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            position: relative; 
+            position: relative;
             z-index: 1; 
             cursor: pointer;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
         }
 
         .tag:hover {
+            animation-play-state: paused;
             transform: scale(1.2) !important; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important; 
             z-index: 10 !important; 
@@ -38,6 +41,7 @@
             color: #e91e63;
             font-size: 16px;
             transform: rotate(-5deg);
+            animation-name: float1; 
         }
 
         .tag:nth-child(2) {
@@ -46,25 +50,29 @@
             position: absolute;
             top: 50px;
             left: 50px;
+            animation-name: float2; 
         }
 
         .tag:nth-child(3) {
             color: #673ab7;
             font-size: 20px;
             transform: rotate(10deg);
+            animation-name: float3; 
         }
 
         .tag:nth-child(4) {
             color: #3f51b5;
             font-size: 22px;
             position: relative;
-            left: 30px;
+            left: 100px;
+            animation-name: float4; 
         }
 
         .tag:nth-child(5) {
             color: #2196f3;
             font-size: 24px;
-            transform: rotate(-40deg);
+            transform: rotate(-15deg);
+            animation-name: float5; 
         }
 
         .tag:nth-child(6) {
@@ -73,39 +81,44 @@
             position: absolute;
             bottom: 50px;
             right: 50px;
+            animation-name: float6; 
         }
 
         .tag:nth-child(7) {
             color: #00bcd4;
             font-size: 28px;
             transform: rotate(20deg);
+            animation-name: float7; 
         }
 
         .tag:nth-child(8) {
             color: #009688;
             font-size: 30px;
             position: relative;
-            top: 170px;
+            right: 100px;
+            animation-name: float8; 
         }
 
         .tag:nth-child(9) {
             color: #4caf50;
             font-size: 32px;
-            transform: rotate(-60deg);
+            transform: rotate(-25deg);
+            animation-name: float9; 
         }
-
         .tag:nth-child(10) {
             color: #8bc34a;
             font-size: 34px;
             position: absolute;
             top: 150px;
             right: 150px;
+            animation-name: float10; 
         }
 
         .tag:nth-child(11) {
             color: #cddc39;
             font-size: 36px;
             transform: rotate(30deg);
+            animation-name: float11; 
         }
 
         .tag:nth-child(12) {
@@ -113,12 +126,14 @@
             font-size: 38px;
             position: relative;
             bottom: 100px;
+            animation-name: float12; 
         }
 
         .tag:nth-child(13) {
             color: #ffc107;
             font-size: 40px;
             transform: rotate(-35deg);
+            animation-name: float13; 
         }
 
         .tag:nth-child(14) {
@@ -127,15 +142,105 @@
             position: absolute;
             bottom: 150px;
             left: 150px;
+            animation-name: float14; 
         }
 
         .tag:nth-child(15) {
             color: #ff5722;
             font-size: 44px;
             transform: rotate(40deg);
+            animation-name: float15; 
+        }
+        @keyframes float1 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(10px, -10px); }
+            100% { transform: translate(0, 0); }
         }
 
-    
+        @keyframes float2 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-15px, 15px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float3 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 10px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float4 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, -15px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float5 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(25px, 5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float6 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 10px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float7 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(15px, -20px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float8 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, 20px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float9 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float10 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-25px, 15px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float11 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(10px, 25px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float12 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, -10px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float13 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(5px, 30px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float14 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -25px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes float15 {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, 5px); }
+            100% { transform: translate(0, 0); }
+        }
+
     </style>
 </head> 
 <body>
