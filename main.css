@@ -1,13 +1,13 @@
 body {
-    background-color: lightblue;
-    color: maroon;
-    font-family: Arial;
+    background-color: #f9f8fe;
+    color: rgb(113, 0, 128);
+    font-family: 'Times New Roman', Times, serif;
     margin: 0px;
 }
 header {
-    background-color: purple;
-    color: white;
-    font-family: Arial;
+    background-color: rgb(211, 154, 255);
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
     margin: 0px; 
 }
 main {
@@ -15,9 +15,9 @@ main {
     margin: 10px 20px 45px; 
 }
 footer {
-    background-color: rgb(32, 178, 44);
+    background-color: rgb(211, 154, 255);
     color: black;
-    font-family: Arial;
+    font-family: 'Times New Roman', Times, serif;
     text-align: right; 
     position: fixed;
     bottom: 0;
@@ -42,7 +42,7 @@ a:hover {
     text-decoration: underline;
     background-color: rgb(230, 117, 230);
     color: rgb(244, 15, 15);
-    font-family: Verdana;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0px;
     transition: 0.3s; 
 }

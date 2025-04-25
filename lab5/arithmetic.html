@@ -123,6 +123,16 @@
                 let result = a**b;
                 alert(a + ' ** ' + b + ' = ' + result);
             }
+            function changeOutput(buttonNum, backcolor, textColor, borderRadius, borderStyle, borderWidth) {
+                let output = document.getElementById('output');
+                output.innerHTML = 'Нажата кнопка ' + buttonNum;
+                output.style.backgroundColor = backcolor;
+                output.style.color = textColor;
+                output.style.borderRadius = borderRadius;
+                output.style.borderStyle = borderStyle;
+                output.style.borderWidth = borderWidth;  
+
+            }
         </script>
         <style>
             .message {
@@ -131,16 +141,28 @@
                 height: 70px;
                 line-height: 70px;
                 text-align: center;
-                background-color: rgb(196, 245, 62);
+                background-color: #D2C7FF;
                 border: 1px dotted rgb(23, 21, 5);
                 margin: 15px;
                 display: inline-block;
+                font-family: 'Times New Roman', Times, serif;
+                
             }
             header {
                 cursor: pointer;
             }
             footer {
                 cursor: pointer;
+            }
+            label {
+                font-family: 'Times New Roman', Times, serif;
+            }
+            #output {
+                border: 1px dotted rgb(23, 21, 5);
+                width: 300px;
+                height: 40px;
+                background-color: #D2C7FF;
+                font-family: 'Times New Roman', Times, serif;
             }
             </style>
     </head>
@@ -156,10 +178,18 @@
             <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
             <div class="message" onclick="showSum()">Найти сумму чисел</div>
             <div class="message" onclick="showDif()">Найти разность чисел</div>
-            <div class="message" onclick="showMult()">Найти произведдение чисел</div>
+            <div class="message" onclick="showMult()">Найти произведение чисел</div>
             <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
             <div class="message" onclick="showDiv()">Найти отношение чисел</div>
             <div class="message" onclick="showDeg()">Возвести в степень</div>
+            <div>
+                <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', '10px', 'dotted', '7px')" >
+                <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', '7px', 'groove', '3px')">
+                <input type="button" value="Кнопка 3" onclick="changeOutput(3, '#E6D1D8', '#391E22', '6px', 'dashed', '4px')">
+                <input type="button" value="Кнопка 4" onclick="changeOutput(4, '#BD8D7D', '#495941', '10px', 'thik', '5px')">
+            </div>
+            
+            <div id="output"></div>
         </main>
 
         <footer ondblclick="showMessage()">
