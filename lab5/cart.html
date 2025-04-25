@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ничипоренко Юлия Николаевна. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+        <link rel= 'icon' href="../favicon-16x16.png"> 
+        <link rel= 'icon' href="../favicon-32x32.png">
+        <script>
+             function corsina() {
+                let a = parseInt(document.getElementById('numberA').value) || 0;
+                let a1 = parseInt(document.getElementById('numberA1').value) || 0;
+                let a2 = parseInt(document.getElementById('numberA2').value) || 0;
+                let a3 = parseInt(document.getElementById('numberA3').value) || 0;
+                let a4 = parseInt(document.getElementById('numberA4').value) || 0;
+
+                let result = a * 20 + a1 *15 + a2 * 50 + a3 * 30 + a4 * 10;
+                document.getElementById('resultR').innerText = 'Общая цена: '  + result + 'p.';
+            } 
+            function clear() {
+                document.getElementById('numberA').value = "";
+                document.getElementById('numberA1').value = "";
+                document.getElementById('numberA2').value = "";
+                document.getElementById('numberA3').value = "";
+                document.getElementById('numberA4').value = "";
+                document.getElementById('resultR').innerText = "";
+            }
+        </script>
+        <style>
+            .cart {
+                background: rgb(175, 225, 175);
+                padding: 10px;
+                width: 220px;
+                border: 6px double rgb(180, 127, 233);
+                line-height: 1.1;
+                margin: auto;
+
+            }
+            input[type='number'] {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+            <hr>
+        </header> 
+
+        <main>
+            <div class="cart">
+                <h1>Корзина с канцелярией</h1>
+                <label>Ручка (20р/шт):<br><input type="number" id="numberA" placeholder="Введите количество ручек" min="0"></label></br>
+                <label>Карандаш (15р/шт):<br><input type="number" id="numberA1" placeholder="Введите количество карандашей" min="0"></label></br>
+                <label>Корректор (50/шт):<br><input type="number" id="numberA2" placeholder="Введите количество корректоров" min="0"></label></br>
+                <label>Линейка (30р/шт):<br><input type="number" id="numberA3" placeholder="Введите количество линеек" min="0"></label></br>
+                <label>Ластик (10р/шт):<br><input type="number" id="numberA4" placeholder="Введите количество ластиков" min="0"></label></br>
+
+                <input type="button" value="Рассчитать" onclick="corsina()" ><br>
+                <div id="resultR"></div>
+                <input type="button" value="Очистить" onclick="clear()" ><br>
+
+            </div>
+        </main>
+
+        <footer>
+            </hr>
+            &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
+
+
