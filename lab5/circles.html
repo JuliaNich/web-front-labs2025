@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ничипоренко Юлия Николаевна. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+        <link rel="icon" href="../favicon-16x16.png"> 
+        <link rel="icon" href="../favicon-32x32.png">
+    
+        <style>
+            body {
+                text-align: center;
+                margin: 0;
+                padding: 0;
+            }
+            #circlesContainer {
+                position: relative;
+                width: 100%;
+                height: 600px;
+                background-color: #f0f0f0;
+                overflow: hidden;
+            }
+            .circle {
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                background-color: #3498db;
+                border-radius: 50%;
+                position: absolute;
+                font-size: 24px;
+                color: white;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                user-select: none;
+            }
+            .hidden {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                margin: 0;
+                line-height: 0;
+                font-size: 0;
+            }
+            #resetBtn {
+                margin-top: 20px;
+                padding: 10px 20px;
+                font-size: 18px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+            <hr>
+        </header>
+
+    <main>
+        <div id="circlesContainer">
+        </div>
+        <br>
+        <button id="resetBtn">Показать все круги</button>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+    </footer>
+
+        <script>
+        const colors = ['#e74c3c', '#2ecc71', '#9b59b6', '#f1c40f', '#1abc9c', '#e67e22', '#34495e', '#7f8c8d', '#d35400', '#8e44ad'];
+        const container = document.getElementById('circlesContainer');
+
+        const containerWidth = container.clientWidth;
+        const containerHeight = container.clientHeight;
+
+        for (let i = 1; i <= 10; i++) {
+            const circle = document.createElement('div');
+            circle.className = 'circle';
+            circle.style.backgroundColor = colors[i - 1];
+            circle.textContent = i;
+
+            const maxLeft = containerWidth - 80;  
+            const maxTop = containerHeight - 80;  
+            const randomLeft = Math.random() * maxLeft;
+            const randomTop = Math.random() * maxTop;
+
+            circle.style.left = randomLeft + 'px';
+            circle.style.top = randomTop + 'px';
+
+            circle.addEventListener('click', function() {
+                this.classList.add('hidden');
+            });
+
+            container.appendChild(circle);
+        }
+
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            const circles = document.querySelectorAll('.circle');
+            circles.forEach(circle => {
+                circle.classList.remove('hidden');
+            });
+        });
+        </script>       
+    </body>
+</html>
