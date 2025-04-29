@@ -12,8 +12,14 @@
             function blurChange() {
                 let value = document.getElementById('blurValue').value + 'px';
                 document.getElementById('blurOutput').innerText = value;
-                document.getElementById('blurImage').style.filter = 'blur(' + value + ')';
+                document.getElementById('blurImage').style.filter = 'blur(' + value + ')'; 
             }
+            function brightness() {
+                let value = document.getElementById('brightnessValue').value + '%';
+                document.getElementById('brightnessOutput').innerText = value;
+                document.getElementById('brightnessImage').style.filter = 'brightness(' + value + ')'; 
+            }
+
         </script>
         <style>
             div {
@@ -35,6 +41,12 @@
                 <span id="blurOutput"></span>
             </div>
             <div><img src="web.jpg" id='blurImage'></div>
+            <div>
+                Фильтр brightness:
+                <input type="range" min="0" max="500" value="100" onchange="brightness()" id='brightnessValue'>
+                <span id="brightnessOutput"></span>
+            </div>
+            <div><img src="web.jpg" id='brightnessImage'></div>
         </main>
 
         <footer>
