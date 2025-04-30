@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ничипоренко Юлия Николаевна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel='icon' href="../favicon-16x16.png">
+    <link rel='icon' href="../favicon-32x32.png">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #imgContainer {
+            display: inline-block;
+            position: relative;
+        }
+
+        img {
+            width: 500px;
+            transition: filter 0.3s;
+        }
+
+        #info {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #help {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+        <hr>
+    </header>
+
+    <h1>Дополнительное задание</h1>
+
+    <div id="imgContainer">
+        <img src="discover.jpg" id="dynamicImage" alt="Картинка">
+    </div>
+
+    <div id="info">Фильтр: blur(0px)</div>
+    <div id="help">
+        Наведите мышь на картинку. Чем правее курсор, тем сильнее фильтр.<br>
+        Нажмите Ctrl — grayscale, Alt — sepia, Shift — hue-rotate.
+    </div>
+
+    <script>
+        const image = document.getElementById("dynamicImage");
+        const info = document.getElementById("info");
+
+        image.addEventListener("mousemove", function(e) {
+            const rect = image.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = image.clientWidth;
+            const percent = x / width;
+
+            let filter = "";
+            let filterName = "";
+
+            if (e.ctrlKey) {
+                const value = Math.round(percent * 100);
+                filter = `grayscale(${value}%)`; 
+                filterName = `grayscale(${value}%)`; 
+            } else if (e.altKey) {
+                const value = Math.round(percent * 100);
+                filter = `sepia(${value}%)`; 
+                filterName = `sepia(${value}%)`; 
+            } else if (e.shiftKey) {
+                const value = Math.round(percent * 360);
+                filter = `hue-rotate(${value}deg)`; 
+                filterName = `hue-rotate(${value}deg)`;
+            } else {
+                const value = Math.round(percent * 20);
+                filter = `blur(${value}px)`; 
+                filterName = `blur(${value}px)`; 
+            }
+
+            image.style.filter = filter;
+            info.textContent = `Фильтр: ${filterName}`; 
+        });
+
+        image.addEventListener("mouseleave", () => {
+            image.style.filter = "none";
+            info.textContent = "Фильтр: нет";
+        });
+    </script>
+    <footer>
+        <hr>
+        &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
