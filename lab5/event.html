@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ничипоренко Юлия Николаевна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel='icon' href="../favicon-16x16.png">
+    <link rel='icon' href="../favicon-32x32.png">
+    <style>
+        #block {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: lightblue;
+            cursor: crosshair;
+        }
+
+        #block.ctrl {
+            background-color: lightcoral;
+            border-color: darkred;
+        }
+
+        #block.alt {
+            background-color: lightgreen;
+            border-color: darkgreen;
+        }
+
+        #block.shift {
+            background-color: lightyellow;
+            border-color: darkgoldenrod;
+        }
+    </style>
+    <script>
+        function showCoords(event) {
+            let x = event.clientX;
+            let y = event.clientY;
+            let div = document.getElementById('block');
+            let message = `x = ${x}px<br>y = ${y}px`;
+
+            if (event.ctrlKey) {
+                message += '<br>Нажата клавиша Ctrl';
+                div.classList.add('ctrl');
+            } else {
+                div.classList.remove('ctrl');
+            }
+
+            if (event.altKey) {
+                message += '<br>Нажата клавиша Alt';
+                div.classList.add('alt');
+            } else {
+                div.classList.remove('alt');
+            }
+
+            if (event.shiftKey) {
+                message += '<br>Нажата клавиша Shift';
+                div.classList.add('shift');
+            } else {
+                div.classList.remove('shift');
+            }
+
+            div.innerHTML = message;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+        <hr>
+    </header>
+
+    <main>
+        <div id="block" onmousemove="showCoords(event)"></div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+    </footer>
+</body>
+</html>
+
