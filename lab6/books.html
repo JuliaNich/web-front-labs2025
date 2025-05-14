@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ничипоренко Юлия Николаевна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+        <link rel= 'icon' href="../favicon-16x16.png"> 
+        <link rel= 'icon' href="../favicon-32x32.png">
+        <script src="book.js"></script>
+        <style>
+            .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+            background-color: #f9f9f9;
+        }
+        .bestseller {
+            border-color: gold;
+            background-color: #fffbe6;
+        }
+        .out-of-stock {
+            opacity: 0.6;
+            font-style: italic;
+        }
+        .price {
+            font-weight: bold;
+            color: #006600;
+        }
+        </style>
+        <script>
+            function showBooks() {
+                const bookList = document.getElementById('bookList');
+                for(let i = 0; i < books.length; i++) {
+                    let book = books[i];
+                let classes = 'book';
+                if (book.bestseller) classes += ' bestseller';
+                if (!book.inStock) classes += ' out-of-stock';
+
+                    bookList.innerHTML += `
+                        <div class="${classes}">
+                            <b>${ books[i].author }.</b><br>
+                            <i>${ books[i].name }.</i><br>
+                            &mdash; ${ books[i].publicationYear }<br>
+                            <span class="price">Цена: ${book.price} руб.</span><br>
+                        ${!book.inStock ? '<span>Нет в наличии</span>' : ''}
+                        </div>
+                    `
+                }
+            }
+            window.onload = showBooks;
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+            <hr>
+        </header> 
+
+        <main>
+            <h1>Список книг</h1>
+            <div id="bookList">
+            </div>
+        </main>
+
+        <footer>
+            </hr>
+            &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
