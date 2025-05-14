@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ничипоренко Юлия Николаевна. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+    <link rel="icon" href="../favicon-16x16.png"> 
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        #diag {
+            display: flex;
+            align-items: flex-end;
+            height: 300px;
+            width: 500px;
+            background-color: white;
+            border: 1px solid #333;
+            padding: 10px;
+            gap: 4px;
+        }
+        .bar {
+            width: 30px;
+            background-color: blue;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+        }
+        .bar span {
+            position: absolute;
+            top: 0;
+            color: rgb(157, 112, 255);
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header> 
+
+    <main>
+        <div id="diag">
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+            <div class="bar"><span></span></div>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+    </footer>
+
+    <script>
+        function showDiagram() {
+            let data = [36, 86, 55, 28, 92, 60, 41, 17, 9, 43];
+            let colors = ['red', 'green', 'blue', 'pink', 'yellow', 'black', 'purple', 'orange', '#eaacff', 'rgba(0, 0, 0, 0.1)'];
+            let bars = document.getElementsByClassName('bar');
+            const diagHeight = document.getElementById('diag').clientHeight;
+            const maxData = Math.max(...data);
+            const k = diagHeight / maxData * 0.9;
+
+            for (let i = 0; i < data.length; i++) {
+                bars[i].style.height = (k * data[i]) + 'px';
+                bars[i].style.backgroundColor = colors[i];
+                bars[i].querySelector('span').innerText = data[i];
+            }
+        }
+
+        showDiagram();
+    </script>
+</body>
+</html>
