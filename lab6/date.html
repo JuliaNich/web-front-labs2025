@@ -26,6 +26,9 @@
         border-left: 5px solid #0066cc;
         background-color: #f0f8ff;
     }
+    header {
+        transition: color 0.8s ease;
+    }
     </style>
     <script>
         function showDate() {
@@ -50,6 +53,26 @@
 
             out.innerHTML = result;
         }
+        function changeColors() {
+            const header = document.getElementsByTagName('header')[0];
+            const rgb = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            header.style.color = rgb;
+        }
+
+        const header = document.getElementsByTagName('header')[0];
+        let timerNum;
+
+        function startChangeColors() {
+            changeColors();
+           timerNum = setInterval(changeColors, 500);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('stop-btn').disabled = false;
+        }
+        function stopChangeColors() {
+            clearInterval(timerNum);
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('stop-btn').disabled = true;
+        }
     </script>
 
     <body onload="showDate()">
@@ -61,6 +84,10 @@
         <main>
             <h2 style="text-align: center;">Дата и время в разных странах</h2>
             <div id="current-date"></div>
+            <div style="text-align: center; margin-top: 20px;">
+             <button onclick="startChangeColors()" id="start-btn">Старт</button>
+             <button onclick="stopChangeColors()" disabled id="stop-btn">Стоп</button>
+            </div>
         </main>
 
         <footer>
