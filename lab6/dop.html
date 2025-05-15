@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ничипоренко Юлия. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">   
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+    <link rel= 'icon' href="../favicon-16x16.png"> 
+    <link rel= 'icon' href="../favicon-32x32.png">
+    <style>
+        #chart {
+            display: flex;
+            align-items: flex-end;
+            height: 300px;
+            margin: 20px auto;
+            width: 95%;
+            max-width: 800px;
+            border: 1px solid #aaa;
+            padding: 10px;
+            background-color: #e0f7fa;
+        }
+
+        .bar {
+            width: 20px;
+            margin: 0 2px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .min-temp {
+            background-color: blue;
+        }
+
+        .max-temp {
+            background-color: lightblue;
+        }
+
+        .bar.selected .min-temp,
+        .bar.selected .max-temp {
+            background-color: orange !important;
+        }
+
+        .label {
+            position: absolute;
+            top: -20px;
+            left: -5px;
+            font-size: 10px;
+        }
+
+        #controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #info {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <h1 style="text-align:center">Температуры за месяц</h1>
+        <div id="chart"></div>
+        <div id="controls">
+            Номер дня: <input type="number" id="dayInput" min="1" max="30">
+            <button onclick="highlightDay()">Найти</button>
+        </div>
+        <div id="info"></div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+    </footer>
+    <script>
+        const chart = document.getElementById('chart');
+        const info = document.getElementById('info');
+        let data = [];
+        let selectedBar = null;
+
+        for (let i = 0; i < 30; i++) {
+            const min = Math.floor(Math.random() * 15 + 5); // от 5 до 19
+            const max = min + Math.floor(Math.random() * 15 + 5); // на 5-20 больше
+            data.push({ min, max });
+
+            const bar = document.createElement('div');
+            bar.className = 'bar';
+
+            const maxDiv = document.createElement('div');
+            maxDiv.className = 'max-temp';
+            maxDiv.style.height = (max - min) * 5 + 'px';
+
+            const minDiv = document.createElement('div');
+            minDiv.className = 'min-temp';
+            minDiv.style.height = min * 5 + 'px';
+
+            const label = document.createElement('div');
+            label.className = 'label';
+            label.innerText = `${max} °C`;
+
+            bar.appendChild(maxDiv);
+            bar.appendChild(minDiv);
+            bar.appendChild(label);
+            chart.appendChild(bar);
+        }
+
+        function highlightDay() {
+            const day = parseInt(document.getElementById('dayInput').value);
+            if (isNaN(day) || day < 1 || day > 30) {
+                alert('Введите номер дня от 1 до 30');
+                return;
+            }
+            if (selectedBar) selectedBar.classList.remove('selected');
+            const bars = document.getElementsByClassName('bar');
+            selectedBar = bars[day - 1];
+            selectedBar.classList.add('selected');
+            const t = data[day - 1];
+            info.innerText = `Минимальная температура: ${t.min}°C, Максимальная температура: ${t.max}°C`;
+        }
+    </script>
+</body>
+</html>
