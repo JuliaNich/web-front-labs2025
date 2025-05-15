@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ничипоренко Юлия Николаевна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+        <link rel= 'icon' href="../favicon-16x16.png"> 
+        <link rel= 'icon' href="../favicon-32x32.png">
+    </head>
+    <style>
+    #current-date {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    #current-date div {
+        margin-bottom: 12px;
+        font-size: 18px;
+        padding: 8px;
+        border-left: 5px solid #0066cc;
+        background-color: #f0f8ff;
+    }
+    </style>
+    <script>
+        function showDate() {
+            let today = new Date();
+            const locales = {
+                'Россия (ru-RU)': 'ru-RU',
+                'США (en-US)': 'en-US',
+                'Германия (de-DE)': 'de-DE',
+                'Япония (ja-JP)': 'ja-JP',
+                'Саудовская Аравия (ar-SA)': 'ar-SA',
+                'Франция (fr-FR)': 'fr-FR'
+            };
+
+            let out = document.getElementById('current-date');
+            let result = '';
+
+            for (let country in locales) {
+                let locale = locales[country];
+                let formatted = today.toLocaleString(locale);
+                result += `<strong>${country}</strong>: ${formatted}<br>`;
+            }
+
+            out.innerHTML = result;
+        }
+    </script>
+
+    <body onload="showDate()">
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+            <hr>
+        </header> 
+
+        <main>
+            <h2 style="text-align: center;">Дата и время в разных странах</h2>
+            <div id="current-date"></div>
+        </main>
+
+        <footer>
+            </hr>
+            &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
