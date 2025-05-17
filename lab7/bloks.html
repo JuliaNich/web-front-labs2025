@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ничипоренко Юлия Николаевна. Лабораторная 7</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"> 
+        <link rel= 'icon' href="../favicon-16x16.png"> 
+        <link rel= 'icon' href="../favicon-32x32.png">
+        <style>
+        button {
+            margin: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            cursor: pointer;
+        }
+        </style>
+        <script>
+            function addNewBlock() {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'purple';
+                newBlock.style.height = '40px';
+                newBlock.style.width = '90%';
+                newBlock.style.margin = '15px';
+                newBlock.style.border = '2px solid #5e0e99';
+                newBlock.style.borderradius = '8px';
+                newBlock.style.boxShadow = '2px 2px 6px rgba(0, 0, 0, 0.2)';
+
+                document.querySelector('main').appendChild(newBlock);
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+            <hr>
+        </header> 
+
+        <main>
+            <button onclick="addNewBlock()">Добавить блок</button>
+        </main>
+
+        <footer>
+            </hr>
+            &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>
+</html>
