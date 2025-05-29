@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ничипоренко Юлия Николаевна. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .positive { color: green; }
+        .negative { color: red; }
+        .neutral { color: black; }
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+        <hr>
+    </header> 
+
+    <main>
+        <button onclick="showStockTable()">Курс акций Русснефти</button>
+        <div id="stockTable"></div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025
+    </footer>
+
+    <script>
+        const dates = [
+            "2025-05-29", "2025-05-28", "2025-05-27", "2025-05-26", "2025-05-23", 
+            "2025-05-22", "2025-05-21", "2025-05-20", "2025-05-19", "2025-05-16"
+        ];
+        const prices = [
+            121.65, 120.95, 117.65, 117.70, 120.30,
+            123.25, 121.00, 121.45, 125.60, 123.50
+        ];
+
+        function showStockTable() {
+            let html = "<table>";
+            html += "<tr><th>Дата</th><th>Цена акции в рублях</th><th>Разница в рублях</th></tr>";
+
+            let total = 0;
+            let max = prices[0];
+            let min = prices[0];
+
+            for (let i = 0; i < prices.length; i++) {
+                const price = prices[i];
+                total += price;
+                if (price > max) max = price;
+                if (price < min) min = price;
+
+                let diff = "";
+                let diffClass = "neutral";
+
+                if (i > 0) {
+                    let d = (price - prices[i - 1]).toFixed(2);
+                    if (d > 0) diffClass = "positive";
+                    else if (d < 0) diffClass = "negative";
+                    diff = `<span class="${diffClass}">${d}</span>`;
+                } else {
+                    diff = "-";
+                }
+
+                html += `<tr><td>${dates[i]}</td><td>${price}</td><td>${diff}</td></tr>`;
+            }
+
+            const avg = (total / prices.length).toFixed(2);
+
+            html += "</table>";
+            html += `<p>Средняя цена: <strong>${avg} (рубли)</strong></p>`;
+            html += `<p>Максимальная цена: <strong>${max} (рубли)</strong></p>`;
+            html += `<p>Минимальная цена: <strong>${min} (рубли)</strong></p>`;
+
+            document.getElementById("stockTable").innerHTML = html;
+        }
+    </script>
+</body>
+</html>
