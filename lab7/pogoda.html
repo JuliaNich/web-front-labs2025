@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ничипоренко Юлия. Температура по часам</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        main {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #temperature-times {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+      <script>
+        async function getTemperatureAtSpecificTimes() {
+            const lat = 55.03; 
+            const lon = 82.92;
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&timezone=Europe%2FMoscow`;
+
+            const response = await fetch(url);
+            const data = await response.json();
+
+            const times = data.hourly.time;
+            const temps = data.hourly.temperature_2m;
+
+            const today = new Date().toISOString().split('T')[0]; 
+            const targetHours = ["08:00", "12:00", "20:00"];
+            const result = [];
+
+            targetHours.forEach(hour => {
+                const fullTime = `${today}T${hour}`;
+                const index = times.indexOf(fullTime);
+                if (index !== -1) {
+                    result.push({ time: hour, temp: temps[index] });
+                } else {
+                    result.push({ time: hour, temp: "нет данных" });
+                }
+            });
+
+            const output = result.map(r => `<p><strong>${r.time}</strong>: ${r.temp} °C</p>`).join("");
+            document.getElementById("temperature-times").innerHTML = output;
+        }
+
+        getTemperatureAtSpecificTimes();
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+        <hr>
+    </header>
+
+    <main>
+        <h2>Температура на сегодня</h2>
+        <div id="temperature-times">Загрузка данных...</div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Юлия Ничипоренко, ФБИ-33, 2 курс, 2025<br>
+    </footer>
+</body>
+</html>
