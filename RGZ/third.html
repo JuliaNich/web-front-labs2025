@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Курс валют | Волгоградэнергосбыт</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="shortcut icon" href="../RGZ/favicon.ico" type="image/x-icon"> 
+  <link rel= 'icon' href="../RGZ/favicon-16x16.png"> 
+  <link rel= 'icon' href="../RGZ/favicon-32x32.png">
+</head>
+<body id="top">
+
+  <header>
+    <div class="header-combined">
+      <a href="#" class="menu-button">Для дома</a>
+      <a href="#" class="menu-button">Для бизнеса</a>
+    </div>
+    <div class="logo-container">
+      <a href="https://www.energosale34.ru/">
+        <img src="лого.png" alt="Логотип" />
+      </a>
+    </div>
+  </header>
+
+  <div class="right-menu">
+  <a href="firststr.html">О компании</a>
+  <a href="twostr.html">Новости</a>
+  <a href="third.html">Курс</a>
+  <a href="four.html">Контакты</a>
+  <a href="five.html">Видео</a>
+</div>
+
+  <div class="left-menu">
+    <a href="#">Тарифы</a>
+    <a href="#">Услуги</a>
+    <a href="#">Информация для абонентов</a>
+    <a href="#">Вопрос-ответ</a>
+    <a href="firststr.html">О компании</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <h1> Курс таджикского сомони (TJS)</h1>
+    <p>Официальный курс на сегодня: <strong><span id="current-rate">Загрузка...</span></strong></p>
+
+    <h2>Калькулятор валют</h2>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+      <div>
+        <label for="rub">Рубли (RUB):</label><br>
+        <input type="number" id="rub" placeholder="Введите сумму">
+      </div>
+      <div>
+        <label for="tjs">Сомони (TJS):</label><br>
+        <input type="number" id="tjs" placeholder="Введите сумму">
+      </div>
+    </div>
+
+    <h2> Динамика курса за месяц</h2>
+    <canvas id="rateChart" style="max-width: 100%; height: 250px;"></canvas>
+    <p id="selected-date" style="margin-top: 10px;"></p>
+  </div>
+
+  <a href="#top" class="to-top">↑ Наверх</a>
+
+  <footer>
+    <div class="footer-left">
+      <div class="footer-title">Контакты</div>
+      <p>Контакт-центр: (8442) 96-07-03</p>
+      <p>WhatsApp / Telegram</p>
+    </div>
+    <div class="footer-right">
+      <div class="footer-title">Услуги</div>
+      <div class="footer-links">
+        <p><strong>Для дома</strong></p>
+        <a href="#">Оплата</a>
+        <a href="#">Показания</a>
+        <a href="#">ЛК</a>
+        <p><strong>Для бизнеса</strong></p>
+        <a href="#">Договор</a>
+        <a href="#">Проф. ЛК</a>
+        <a href="#">Тарифы</a>
+      </div>
+    </div>
+    <div class="footer-center">
+      <p>&copy; 2025 ПАО «Волгоградэнергосбыт». Все права защищены. <a href="https://www.energosale34.ru/">www.energosale34.ru</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function formatDate(date) {
+      const d = new Date(date);
+      let month = '' + (d.getMonth() + 1);
+      let day = '' + d.getDate();
+      const year = d.getFullYear();
+
+      if (month.length < 2) month = '0' + month;
+      if (day.length < 2) day = '0' + day;
+
+      return [year, month, day].join('-');
+    }
+
+    fetch('https://www.cbr-xml-daily.ru/daily_json.js')
+      .then(response => response.json())
+      .then(data => {
+        const tjs = data.Valute.TJS;
+        const rate = tjs.Value.toFixed(4);
+        document.getElementById('current-rate').textContent = rate + ' RUB';
+        setupCalculator(rate);
+      });
+
+    function setupCalculator(rate) {
+      const rubInput = document.getElementById('rub');
+      const tjsInput = document.getElementById('tjs');
+
+      rubInput.addEventListener('input', () => {
+        const rub = parseFloat(rubInput.value);
+        tjsInput.value = rub ? (rub / rate).toFixed(2) : '';
+      });
+
+      tjsInput.addEventListener('input', () => {
+        const tjs = parseFloat(tjsInput.value);
+        rubInput.value = tjs ? (tjs * rate).toFixed(2) : '';
+      });
+    }
+
+  const dates = ["2025-06-01", "2025-05-31", "2025-05-30", "2025-05-29", "2025-05-28", "2025-05-27", "2025-05-26", "2025-05-25", "2025-05-24", "2025-05-23", "2025-05-22", "2025-05-21", "2025-05-20", "2025-05-19", "2025-05-18", "2025-05-17", "2025-05-16", "2025-05-15", "2025-05-14", "2025-05-13", "2025-05-12", "2025-05-11", "2025-05-10", "2025-05-09", "2025-05-08", "2025-05-07", "2025-05-06", "2025-05-05", "2025-05-04", "2025-05-03"];
+  const rates = [78.736, 78.736, 78.4029, 78.6404, 78.2575, 78.4095, 78.3027, 78.3228, 78.2734, 78.3416, 78.2744, 78.1812, 78.1812, 78.1812, 78.1525, 78.0916, 78.0137, 78.0044, 78.0051, 78.0127, 78.0501, 78.0896, 78.0896, 78.0896, 78.0896, 78.1677, 78.2229, 78.2792, 78.3328, 78.3366];
+
+  renderChart(dates, rates);
+
+
+    function renderChart(labels, data) {
+      const ctx = document.getElementById('rateChart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Курс TJS к RUB',
+            data: data,
+            backgroundColor: '#003478'
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.parsed.y + ' RUB';
+                }
+              }
+            }
+          },
+          onClick: (e, elements) => {
+            if (elements.length > 0) {
+              const index = elements[0].index;
+              const date = labels[index];
+              const rate = data[index];
+              document.getElementById('selected-date').textContent = `Дата: ${date}, Курс: ${rate} RUB`;
+            }
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
