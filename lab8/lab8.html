@@ -30,15 +30,20 @@
                 <div>Имя: {{ user.name }}</div>
                 <div>Возраст: {{ user.age }}</div>
                 <div>Телефон: {{ user.tel }}</div>
-                <hr>
+            <hr>
 
-                <h2>Цветы</h2>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Цветы</h2>
                 <ul class="list-group">
                     <li v-for="(flower, id) in flowers" class="list-group-item">
                         {{ flower }} <button @click="edit(id, flower)">?</button>
                     </li>
                 </ul>
-                <hr>
+                
+                </div>
+            </div>
+            <hr>   
 
                 <h2>Цветы</h2>
                 <table class="table table-primary">
@@ -57,7 +62,7 @@
                         </td>
                     </tr>
                 </table>
-                <hr>
+            <hr>
 
                 <h2>Калькулятор</h2>
                 <div class="row g-5">
