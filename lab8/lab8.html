@@ -55,7 +55,15 @@
                             <button @click="edit(id, flower)" class="btn btn-outline-primary btn-sm" v-if="flower !== null">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
-                        </li>
+                            <button @click="remove(id)" class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </li> 
+                        <div class="d-grid">
+                            <button @click="addFlower" class="btn btn-success">
+                                <i class="bi bi-plus-circle-fill"></i> Добавить цветок
+                            </button>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -149,6 +157,17 @@
                     },
                     sum() {
                         this.result = this.a + this.b;
+                    },
+                    addFlower() {
+                        let name = prompt('Введите название нового цветка:');
+                        if (name && name.trim() !== '') {
+                            this.flowers.push(name.trim());
+                        }
+                    },
+                    remove(id) {
+                        if (confirm('Удалить "' + this.flowers[id] + '"?')) {
+                            this.flowers.splice(id, 1);
+                        }
                     },
                 }
             }).mount('#app');
